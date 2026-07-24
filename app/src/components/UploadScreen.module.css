@@ -1,0 +1,65 @@
+.intro {
+  color: var(--muted);
+  margin: 1rem 0 2rem;
+  max-width: 60ch;
+}
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--surface);
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.dropzone[data-dragging='true'] {
+  border-color: var(--accent-blue);
+  background: var(--surface-2);
+}
+
+.dropzone:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.dropText {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.or {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.selectedFile {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+}
+
+.error {
+  color: var(--error);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

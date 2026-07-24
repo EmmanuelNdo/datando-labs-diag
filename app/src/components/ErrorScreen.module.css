@@ -1,0 +1,21 @@
+.message {
+  color: var(--muted);
+  margin: 1rem 0 2rem;
+  max-width: 60ch;
+}
+
+.technical {
+  margin-top: 2rem;
+}
+
+.technicalBlock {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

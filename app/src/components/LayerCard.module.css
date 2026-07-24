@@ -1,0 +1,113 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-top: 3px solid transparent;
+  border-image: var(--gradient) 1;
+}
+
+.headRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.badge[data-status='ok'] {
+  color: var(--ok);
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.badge[data-status='warning'] {
+  color: var(--warning);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.badge[data-status='error'] {
+  color: var(--error);
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.grid dt {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.grid dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.details {
+  margin-top: 1rem;
+}
+
+.issueList {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.issueList li {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+}
+
+.issueHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.issueLabel {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.issueDesc {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.extentValue {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+}
