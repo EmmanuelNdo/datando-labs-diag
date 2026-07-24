@@ -3,14 +3,11 @@ import { StepIndicator } from './StepIndicator'
 import { validateFile, checkEngineAvailable } from '../lib/diagnosticClient'
 import type { DiagnosticError } from '../lib/errorMessages'
 import { RECOMMENDED_MAX_FILE_SIZE_BYTES } from '../lib/constants'
+import { formatFileSize } from '../lib/format'
 import styles from './UploadScreen.module.css'
 
 interface Props {
   onFileReady: (file: File) => void
-}
-
-function formatSize(bytes: number): string {
-  return `${(bytes / (1024 * 1024)).toFixed(1)} Mo`
 }
 
 export function UploadScreen({ onFileReady }: Props) {
@@ -76,7 +73,7 @@ export function UploadScreen({ onFileReady }: Props) {
         <p className={styles.dropText}>Glissez votre GeoPackage ici</p>
         <p className={styles.or}>ou</p>
         <span className="btn btn-secondary">Sélectionner un fichier</span>
-        {file && <p className={styles.selectedFile}>{file.name} — {formatSize(file.size)}</p>}
+        {file && <p className={styles.selectedFile}>{file.name} — {formatFileSize(file.size)}</p>}
       </div>
 
       {error && <p className={styles.error} role="alert">{error.userMessage}</p>}
@@ -84,7 +81,7 @@ export function UploadScreen({ onFileReady }: Props) {
       <ul className={styles.infoList}>
         <li>Format accepté : <strong>.gpkg</strong></li>
         <li>Un seul fichier à la fois</li>
-        <li>Taille maximale recommandée : {formatSize(RECOMMENDED_MAX_FILE_SIZE_BYTES)}</li>
+        <li>Taille maximale recommandée : {formatFileSize(RECOMMENDED_MAX_FILE_SIZE_BYTES)}</li>
         <li>Analyse réalisée localement dans votre navigateur, jamais envoyée à un serveur Datando</li>
       </ul>
 

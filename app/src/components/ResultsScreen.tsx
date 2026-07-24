@@ -1,5 +1,6 @@
 import { StepIndicator } from './StepIndicator'
 import { LayerCard } from './LayerCard'
+import { formatFileSize } from '../lib/format'
 import type { DiagnosticResult, DiagnosticStatus } from '../lib/types'
 import styles from './ResultsScreen.module.css'
 
@@ -13,10 +14,6 @@ const VERDICT_TEXT: Record<DiagnosticStatus, string> = {
   ok: "Aucun problème n'a été détecté parmi les contrôles disponibles dans cette version.",
   warning: 'Le fichier peut être utilisé, mais certains éléments méritent une vérification.',
   error: 'Plusieurs anomalies ont été détectées. Il est recommandé de vérifier les couches concernées avant utilisation.',
-}
-
-function formatSize(bytes: number): string {
-  return `${(bytes / (1024 * 1024)).toFixed(2)} Mo`
 }
 
 function formatDuration(ms: number): string {
@@ -65,7 +62,7 @@ export function ResultsScreen({ result, onReset }: Props) {
         </div>
         <div>
           <dt>Taille du fichier</dt>
-          <dd>{formatSize(file.sizeBytes)}</dd>
+          <dd>{formatFileSize(file.sizeBytes)}</dd>
         </div>
         <div>
           <dt>Durée de l'analyse</dt>
@@ -87,12 +84,12 @@ export function ResultsScreen({ result, onReset }: Props) {
       <div className={styles.cta}>
         <p>Vous souhaitez apprendre à contrôler et nettoyer vos données dans QGIS ?</p>
         <div className={styles.ctaButtons}>
-          <a className="btn btn-secondary" href="https://datando.fr" target="_blank" rel="noreferrer">
+          <a className="btn btn-secondary" href="https://datando.fr/formation/" target="_blank" rel="noreferrer">
             Découvrir les formations QGIS
           </a>
           <a
             className="btn btn-secondary"
-            href="https://les-geomagiciens.circle.so/"
+            href="https://datando.fr/datando-geomagicien"
             target="_blank"
             rel="noreferrer"
           >
