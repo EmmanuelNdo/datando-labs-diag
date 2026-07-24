@@ -52,7 +52,10 @@ export class GeoPackageDiagnosticService {
   private static getSqlJs(): Promise<SqlJsStatic> {
     if (!this.sqlJsPromise) {
       this.sqlJsPromise = initSqlJs({
-        locateFile: (file: string) => `/${file}`,
+        // import.meta.env.BASE_URL (always trailing-slash-terminated) rather
+        // than a hardcoded "/": on a project site (e.g. GitHub Pages) the
+        // app is served under a subpath, and a root-absolute path 404s.
+        locateFile: (file: string) => `${import.meta.env.BASE_URL}${file}`,
       })
     }
     return this.sqlJsPromise
